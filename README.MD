@@ -1,3 +1,11 @@
+📑 **Table of Contents**
+
+- [🚀 Install WinGet](#-1️⃣-install-winget)
+- [🎨 Install Oh My Posh](#-2️⃣-install-oh-my-posh)
+- [🔤 Install and Set a Nerd Font](#-6️⃣-install-and-set-a-nerd-font)
+- [⚡  Setup Custom Fastfetch](#-1️⃣0️⃣-setup-custom-fastfetch)
+
+
 # 🖥 Windows Terminal Setup Guide
 
 This guide will help you install **WinGet**, **Oh My Posh**, set a **theme**, configure a **Nerd Font**, and set up **custom Fastfetch** for the best terminal experience on Windows.
