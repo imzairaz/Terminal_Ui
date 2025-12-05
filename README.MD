@@ -17,7 +17,7 @@ WinGet is the Windows Package Manager. It works on:
 Open **PowerShell as Administrator** and run:
 
 ```powershell
-Invoke-WebRequest https://raw.githubusercontent.com/imzairaz/TerminalUi/master/winget-install.ps1 -UseBasicParsing | iex
+Invoke-WebRequest https://raw.githubusercontent.com/imzairaz/Terminal_Ui/master/winget-install.ps1 -UseBasicParsing | iex
 ````
 
 ### Test Installation
