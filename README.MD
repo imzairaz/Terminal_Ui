@@ -9,7 +9,8 @@ This guide will help you set up a **modern and beautiful Windows terminal** usin
 - [🚀 Install WinGet](#-install-winget)
 - [🎨 Install Oh My Posh](#-install-oh-my-posh)
 - [🔤 Install and Set a Nerd Font](#-install-and-set-a-nerd-font)
-- [⚡ Setup Custom Fastfetch](#-setup-custom-fastfetch)
+- [⚡  Setup Custom Fastfetch](#-setup-custom-fastfetch)
+- [❌ Remove Microsoft Edge](#-how-to-remove-microsoft-edge)
 
 ---
 
@@ -172,3 +173,14 @@ C:\Users\YOUR_USERNAME\Documents\WindowsPowerShell\profile.ps1
 ---
 
 > You now have a fully customized **Windows terminal** with **Oh My Posh**, **Nerd Fonts**, and **Fastfetch**, giving you a Linux/Arch-style terminal experience. 🖤✨
+
+
+## ❌ How to Remove Microsoft Edge
+
+If you want to remove Microsoft Edge from Windows:
+
+1. Download the `removeedge.bat` file from my repo folder named **Remove Edge**.
+2. Right-click the file → **Run as Administrator**.
+3. Follow the prompts in the script to complete the removal.
+
+> ⚠️ Warning: Removing Edge may affect certain Windows features. Only remove it if you know what you are doing.
