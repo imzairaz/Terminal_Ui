@@ -136,4 +136,4 @@ Remove-Item $wingetLicensePath
 
 # Finished
 section("Installation complete!")
-section("Please restart your computer to complete the installation.")
+section("Please restart your computer to complete the installations.")
