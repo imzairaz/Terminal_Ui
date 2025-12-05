@@ -1,27 +1,27 @@
-# 🖥 Windows 10
+# 🖥 Windows 10 Terminal Setup Guide
 
-This guide will help you install **WinGet**, **Oh My Posh**, set a **theme**, configure a **Nerd Font**, and set up **custom Fastfetch** for the best terminal experience on Windows.
-
-
-## 📑 Table of Contents
-
-- [🚀 Install WinGet](#-1️⃣-install-winget)
-- [🎨 Install Oh My Posh](#-2️⃣-install-oh-my-posh)
-- [🔤 Install and Set a Nerd Font](#-6️⃣-install-and-set-a-nerd-font)
-- [⚡  Setup Custom Fastfetch](#-1️⃣0️⃣-setup-custom-fastfetch)
-
+This guide will help you set up a **modern and beautiful Windows terminal** using **WinGet**, **Oh My Posh**, **Nerd Fonts**, and **custom Fastfetch** for a Linux/Arch-style experience.
 
 ---
 
-## 🚀 1️⃣ Install WinGet
+## 📑 Table of Contents
 
-WinGet is the Windows Package Manager. It works on:
+- [🚀 Install WinGet](#-install-winget)
+- [🎨 Install Oh My Posh](#-install-oh-my-posh)
+- [🔤 Install and Set a Nerd Font](#-install-and-set-a-nerd-font)
+- [⚡ Setup Custom Fastfetch](#-setup-custom-fastfetch)
+
+---
+
+## 🚀 Install WinGet
+
+WinGet is the Windows Package Manager. Works on:
 
 - Windows 10 (1809 or newer, including LTSC)
 - Windows 11
 - Windows Server 2019/2022
 
-### Install Command
+### Install WinGet
 
 Open **PowerShell as Administrator** and run:
 
@@ -35,11 +35,11 @@ Invoke-WebRequest https://raw.githubusercontent.com/imzairaz/Terminal_Ui/master/
 winget
 ```
 
-✅ If it prints a list of commands, WinGet is installed successfully.
+> ✅ If it prints a list of commands, WinGet is installed successfully.
 
 ---
 
-## 🎨 2️⃣ Install Oh My Posh
+## 🎨 Install Oh My Posh
 
 Install via WinGet:
 
@@ -53,30 +53,28 @@ winget install JanDeDobbeleer.OhMyPosh --source winget
 oh-my-posh --version
 ```
 
-> If it prints a version number, you’re good. Otherwise, reinstall Oh My Posh.
+> If a version number appears, you’re good. Otherwise, reinstall Oh My Posh.
 
 ---
 
-## 🗂 3️⃣ Find Available Themes
+### Find and Apply Themes
 
-List all installed themes:
+List installed themes:
 
 ```powershell
 ls $env:POSH_THEMES_PATH -Filter *.omp.json
 ```
 
-Fallback search if the above is empty:
+Fallback search if empty:
 
 ```powershell
 Get-ChildItem -Path (Split-Path (Get-Command oh-my-posh).Source) -Recurse -Filter *.omp.json
 ```
 
-> Example theme filenames: `jandedobbeleer.omp.json`, `paradox.omp.json`
-> Use the **filename without `.omp.json`** as the theme name.
+> Example filenames: `jandedobbeleer.omp.json`, `paradox.omp.json`
+> Use the **name without `.omp.json`** as the theme name.
 
----
-
-## 🎯 4️⃣ Test a Theme Temporarily
+### Test a Theme Temporarily
 
 Replace `THEME_NAME` with your desired theme:
 
@@ -84,19 +82,17 @@ Replace `THEME_NAME` with your desired theme:
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\THEME_NAME.omp.json" | Invoke-Expression
 ```
 
-> Applies theme **only for the current session**.
+> This applies the theme **only for the current session**.
 
----
+### Make the Theme Permanent
 
-## 💾 5️⃣ Make a Theme Permanent
-
-### Step 1 — Open PowerShell profile
+1. Open your PowerShell profile:
 
 ```powershell
 notepad $PROFILE
 ```
 
-> If the file doesn’t exist:
+2. If it doesn’t exist, create it:
 
 ```powershell
 New-Item -ItemType Directory -Path (Split-Path $PROFILE) -Force
@@ -104,19 +100,17 @@ New-Item -ItemType File -Path $PROFILE -Force
 notepad $PROFILE
 ```
 
-### Step 2 — Add the theme line
+3. Add this line (replace theme if desired):
 
 ```powershell
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\jandedobbeleer.omp.json" | Invoke-Expression
 ```
 
-### Step 3 — Save and restart PowerShell
-
-> Theme will now load automatically on every terminal start.
+4. Save and restart PowerShell. Theme will load automatically.
 
 ---
 
-## 🔤 6️⃣ Install and Set a Nerd Font
+## 🔤 Install and Set a Nerd Font
 
 Oh My Posh themes require a Nerd Font for icons.
 
@@ -127,48 +121,21 @@ Recommended fonts:
 * JetBrainsMono Nerd Font
 * FiraCode Nerd Font
 
-Install the `.ttf` file → right-click → **Install** (or **Install for all users**).
+Install the `.ttf` → right-click → **Install** (or **Install for all users**).
 
-### Step 2 — Set Font in Windows Terminal
+### Step 2 — Configure Windows Terminal
 
 1. Open **Windows Terminal → Settings → Profiles → PowerShell → Appearance**
-2. Font face → type font name (e.g., `JetBrainsMono Nerd Font`)
+2. Set **Font face** to your Nerd Font (e.g., `JetBrainsMono Nerd Font`)
 3. Save and restart terminal
 
 > Legacy PowerShell console: Right-click → Properties → Font → select Nerd Font
 
 ---
 
-## ✅ 7️⃣ Quick Verification
+## ⚡ Setup Custom Fastfetch
 
-```powershell
-oh-my-posh --version
-```
-
-* Should print version number
-* Prompt shows the new theme with icons
-
----
-
-## ⚠ 8️⃣ Troubleshooting
-
-* **Themes not showing** → check `$POSH_THEMES_PATH` or use fallback search
-* **Icons appear as squares** → font not set correctly
-* **Theme doesn’t persist** → save `$PROFILE` and restart terminal (`. $PROFILE` reloads it)
-
----
-
-## 🎨 9️⃣ Optional Tweaks
-
-* Change themes anytime by editing `$PROFILE`
-* Use modern themes like `jandedobbeleer` or `tokyonight_storm`
-* Enable **transparent background** or **acrylic** for Arch/Linux look
-
----
-
-## ⚡ 1️⃣0️⃣ Setup Custom Fastfetch
-
-### Step 1 Check your PowerShell profile path:
+1. Check your PowerShell profile path:
 
 ```powershell
 $PROFILE
@@ -176,13 +143,13 @@ $PROFILE
 
 > Example: `C:\Users\YOUR_USERNAME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
 
-### Step 2 If needed, create a new profile:
+2. If needed, create a new profile:
 
 ```powershell
 New-Item -Path $PROFILE.CurrentUserAllHosts -Type File -Force
 ```
 
-### Step 3 Copy Fastfetch files from my repo to:
+3. Copy Fastfetch files from the repo to:
 
 ```text
 C:\Users\YOUR_USERNAME\.config\fastfetch
@@ -190,9 +157,9 @@ C:\Users\YOUR_USERNAME\.config\fastfetch
 
 > Make sure the `.config` folder is hidden.
 
-### Step 4 Open `config.jsonc` inside the folder and set your **username** at the source line.
+4. Open `config.jsonc` inside the folder and set your **username** at the source line.
 
-### Step 5 Replace your profile file with my `profile.ps1` from the repo:
+5. Replace your profile file with `profile.ps1` from the repo:
 
 ```text
 C:\Users\YOUR_USERNAME\Documents\WindowsPowerShell\profile.ps1
@@ -200,8 +167,8 @@ C:\Users\YOUR_USERNAME\Documents\WindowsPowerShell\profile.ps1
 
 > Open `profile.ps1` and update your username.
 
-### Step 6 Open a new terminal → BoooM! 🎉
+6. Open a new terminal → BoooM! 🎉
 
 ---
 
-> You now have a fully customized **Windows terminal** with Oh My Posh, Nerd Fonts, and Fastfetch for a Linux/Arch-style look. 🖤✨
+> You now have a fully customized **Windows terminal** with **Oh My Posh**, **Nerd Fonts**, and **Fastfetch**, giving you a Linux/Arch-style terminal experience. 🖤✨
